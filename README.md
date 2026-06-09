@@ -1,18 +1,20 @@
+[update-readmes]   Mode: rewrite — migrating to template structure...
 # shuru
 
-Local-first microVM sandbox for AI agents on macOS, with experimental Linux support.
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/shuru)
 
-Shuru boots lightweight Linux VMs for AI agents. On macOS it uses Apple's Virtualization.framework. On Linux it uses a KVM backend that is now available as an experimental release build for ARM64 hosts. Every sandbox is ephemeral: the rootfs resets on every run, giving agents a disposable environment to execute code, install packages, and run tools without touching your host.
+<!-- AI:start:what-it-does -->
+_Description pending._
+<!-- AI:end:what-it-does -->
 
-> [!WARNING]
-> **Experimental Linux support.** Linux builds are available for testing, but they are not ready for production use yet. Expect rough edges, missing polish, and compatibility gaps.
+## Architecture
 
-## Requirements
-
-- macOS 14 (Sonoma) or later on Apple Silicon
-- Linux ARM64 with KVM access (`/dev/kvm`) for experimental testing only
+<!-- AI:start:architecture -->
+_Architecture documentation pending._
+<!-- AI:end:architecture -->
 
 ## Install
+
 
 ```sh
 brew tap superhq-ai/tap && brew install shuru
@@ -30,6 +32,7 @@ The install script supports macOS on Apple Silicon and experimental Linux ARM64.
 > Homebrew remains macOS-only. Linux installs via the script are still experimental and not ready for production use.
 
 ## Usage
+
 
 ```sh
 # Interactive shell
@@ -153,59 +156,50 @@ Shuru loads `shuru.json` from the current directory (or `--config PATH`). All fi
 
 The `network.allow` list restricts which hosts the guest can reach. Omit it to allow all hosts.
 
-## SDK
+## Configuration
 
-Use shuru programmatically from TypeScript with the [`@superhq/shuru`](https://www.npmjs.com/package/@superhq/shuru) package.
+<!-- Document configuration options here. This section is yours — the AI will not modify it. -->
 
-```sh
-bun add @superhq/shuru
+## CI
+
+<!-- AI:start:ci -->
+_CI documentation pending._
+<!-- AI:end:ci -->
+
+## Mirror chain
+
+<!-- AI:start:mirror-chain -->
+This repo is maintained in [`Interested-Deving-1896/shuru`](https://github.com/Interested-Deving-1896/shuru) and mirrored through:
+
+```
+Interested-Deving-1896/shuru  ──►  OpenOS-Project-OSP/shuru  ──►  OpenOS-Project-Ecosystem-OOC/shuru
 ```
 
-```ts
-import { Sandbox } from "@superhq/shuru";
+Changes flow downstream automatically via the hourly mirror chain in
+[`fork-sync-all`](https://github.com/Interested-Deving-1896/fork-sync-all).
+Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-Deving-1896`.
+<!-- AI:end:mirror-chain -->
 
-const sb = await Sandbox.start({ from: "python-env" });
+## Contributors
 
-const result = await sb.exec("python3 -c 'print(1+1)'");
-console.log(result.stdout); // "2\n"
+<!-- AI:start:contributors -->
+_Contributors pending._
+<!-- AI:end:contributors -->
 
-await sb.checkpoint("after-run"); // saves disk state and stops the VM
-```
+## Origins
 
-See the [SDK README](packages/sdk/README.md) for full API docs.
+<!-- AI:start:origins -->
+_Original project — no upstream fork._
+<!-- AI:end:origins -->
 
-## Agent Skill
+## Resources
 
-Shuru ships as an [agent skill](https://agentskills.io) so AI agents (Claude Code, Cursor, Copilot, etc.) can use it automatically.
+<!-- AI:start:resources -->
+_No additional resource files found._
+<!-- AI:end:resources -->
 
-```sh
-# Install via Vercel's skills CLI
-npx skills add superhq-ai/shuru
+## License
 
-# Or manually copy into your project
-cp -r skills/shuru .claude/skills/shuru
-```
-
-Once installed, agents will use `shuru run` whenever they need sandboxed execution.
-
-## Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for release notes and breaking changes.
-
-## Support
-
-<a href="https://buymeacoffee.com/harshdoesdev" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="40"></a>
-
-## Bugs
-
-File issues at [github.com/superhq-ai/shuru/issues](https://github.com/superhq-ai/shuru/issues).
-
-## Star History
-
-<a href="https://www.star-history.com/?repos=superhq-ai%2Fshuru&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=superhq-ai/shuru&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=superhq-ai/shuru&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=superhq-ai/shuru&type=date&legend=top-left" />
- </picture>
-</a>
+<!-- AI:start:license -->
+[Apache-2.0](https://github.com/Interested-Deving-1896/shuru/blob/main/LICENSE) © 2026 [Interested-Deving-1896](https://github.com/Interested-Deving-1896)
+<!-- AI:end:license -->
